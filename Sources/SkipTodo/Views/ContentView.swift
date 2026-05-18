@@ -36,6 +36,9 @@ struct ContentView: View {
                                         if let index = store.todos.firstIndex(where: { $0.id == todo.id }) {
                                             store.delete(at: IndexSet([index]))
                                         }
+                                    },
+                                    onUpdate: { newTitle in
+                                        store.update(id: todo.id, newTitle: newTitle)
                                     }
                                 )
                             }

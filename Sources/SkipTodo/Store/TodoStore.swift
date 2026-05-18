@@ -7,11 +7,15 @@ import SkipFuse
         didSet { save() }
     }
 
-    public init() {}
-
     func add(title: String) {
         todos.insert(Todo(title: title), at: 0)
     }
+    
+    func update(id: UUID, newTitle: String) {
+        if let index = todos.firstIndex(where: { $0.id == id }) {
+            todos[index].title = newTitle
+        }
+        }
 
     func toggle(_ todo: Todo) {
         todos = todos.map { t in
