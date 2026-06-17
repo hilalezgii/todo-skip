@@ -26,6 +26,11 @@ struct ContentView: View {
                         newTodoTitle = ""
                     }
 
+                    Native3DView(
+                        inProgressCount: store.todos.filter { !$0.isDone }.count,
+                        doneCount: store.todos.filter { $0.isDone }.count
+                    )
+
                     ScrollView {
                         VStack(spacing: 12) {
                             ForEach(store.todos) { todo in
