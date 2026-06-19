@@ -30,6 +30,7 @@ struct ContentView: View {
                         inProgressCount: store.todos.filter { !$0.isDone }.count,
                         doneCount: store.todos.filter { $0.isDone }.count
                     )
+                    .frame(height: 160)
 
                     ScrollView {
                         VStack(spacing: 12) {
